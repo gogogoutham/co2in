@@ -1089,11 +1089,17 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
     // Subsidy is cut in half every 840000 blocks, which will occur approximately every 4 years
     nSubsidy >>= (nHeight / 840000); // CO2IN: 840k blocks in ~4 years
 
+    if (nHeight >= 1 && nHeight <= 10) { // 20% Pre-mine
+        nSubsidy = 2100000 * COIN;
+    } else if (nHeight >= 840000 && nHeight <= 840019) { // 500 Coins from pre-mine are disbursed to miners around time of first split
+        nSubsidy += 25 * COIN;
+    }
+
     return nSubsidy + nFees;
 }
 
-static const int64 nTargetTimespan = 3.5 * 24 * 60 * 60; // CO2IN: 3.5 days
-static const int64 nTargetSpacing = 2.5 * 60; // CO2IN: 2.5 minutes
+static const int64 nTargetTimespan = 2.5 * 60; // CO2IN: 5 minutes
+static const int64 nTargetSpacing = 2.5 * 60; // CO2IN: 5 minutes
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 //
@@ -1167,10 +1173,10 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
     // Limit adjustment step
     int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
     printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
-    if (nActualTimespan < nTargetTimespan/4)
-        nActualTimespan = nTargetTimespan/4;
-    if (nActualTimespan > nTargetTimespan*4)
-        nActualTimespan = nTargetTimespan*4;
+    if (nActualTimespan < (3*nTargetTimespan/4))
+        nActualTimespan = (3*nTargetTimespan/4);
+    if (nActualTimespan > (3*nTargetTimespan/2))
+        nActualTimespan = (3*nTargetTimespan/2);
 
     // Retarget
     CBigNum bnNew;
@@ -2779,7 +2785,7 @@ bool InitBlockIndex() {
         //   vMerkleTree: 97ddfbbae6
 
         // Genesis block
-        const char* pszTimestamp = "NY Times 05/Oct/2011 Steve Jobs, Apple’s Visionary, Dies at 56";
+        const char* pszTimestamp = "NY Times 27/Apr/2014 Two Popes Become Saints in Historic Canonization";
         CTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -2791,14 +2797,14 @@ bool InitBlockIndex() {
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1317972665;
+        block.nTime    = 1398659230;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 2084524493;
+        block.nNonce   = 1911507318;
 
         if (fTestNet)
         {
-            block.nTime    = 1317798646;
-            block.nNonce   = 385270584;
+            block.nTime    = 1398659042;
+            block.nNonce   = 3792275851;
         }
 
         //// debug print

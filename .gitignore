@@ -1,0 +1,34 @@
+src/*.exe
+src/co2in
+src/co2ind
+src/test_co2in
+.*.swp
+*.*~*
+*.bak
+*.rej
+*.orig
+*.o
+*.patch
+.litecoin
+
+# Compilation and Qt preprocessor part
+*.qm
+Makefile
+co2in-qt
+CO2IN-Qt.app
+
+# Unit-tests
+Makefile.test
+co2in-qt_test
+
+# Resources cpp
+qrc_*.cpp
+
+# Qt creator
+*.pro.user
+
+# Mac specific
+.DS_Store
+build
+
+!src/leveldb*/Makefile
