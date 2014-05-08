@@ -9,7 +9,7 @@ src/test_co2in
 *.orig
 *.o
 *.patch
-.litecoin
+.co2in
 
 # Compilation and Qt preprocessor part
 *.qm

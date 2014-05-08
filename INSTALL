@@ -1,9 +1,9 @@
-Building Litecoin
+Building CO2IN
 
-See doc/readme-qt.rst for instructions on building Litecoin-Qt,
+See doc/readme-qt.rst for instructions on building CO2IN-Qt,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of Litecoin.
+implementation of CO2IN.
 
-See doc/build-*.txt for instructions on building litecoind,
+See doc/build-*.txt for instructions on building co2ind,
 the intended-for-services, no-graphical-interface, reference
-implementation of Litecoin.
+implementation of CO2IN.
