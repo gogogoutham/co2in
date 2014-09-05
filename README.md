@@ -10,7 +10,7 @@ What is CO2IN?
 
 CO2IN (pronounced "see-oh-too" coin) is a fork of Litecoin built for (self)-educational purposes. 
 
-THIS IS NOT AN ACTIVE CRYTPOCURRENCY AND SHOULD NOT BE TREATED AS SUCH. USE AT YOUR OWN RISK!
+CO2IN IS AN INACTIVE CRYTPOCURRENCY THAT NEVER EXITED THE BETA STAGE (AND NEVER WILL). USE AT YOUR OWN RISK!
 
 Parameters are as follows:
 
